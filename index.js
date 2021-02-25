@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const Recipe = require('./models/Recipe.model');
 // Import of the data from './data.json'
 const data = require('./data');
-
 const MONGODB_URI = "mongodb+srv://victor2:victorvictor@cluster0.hzjcy.mongodb.net/myRecipe?retryWrites=true&w=majority"
 
 // Connection to the database "recipe-app"
@@ -32,6 +31,8 @@ mongoose
       duration: 17,
       creator: "almighty Victor"
     }).then(console.log)
+
+    Recipe.insertMany(data).then(console.log)
 
 
 
