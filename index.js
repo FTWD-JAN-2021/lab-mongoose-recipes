@@ -37,6 +37,10 @@ mongoose
     await Recipe.findOneAndUpdate({title: 'Rigatoni alla Genovese'}, {duration: 100}).then(console.log)
 
 
+    await Recipe.deleteOne({title:'Carrot Cake'}).then((res) => console.log('Carrot Cake Deleted'))
+    
+    mongoose.connection.close()
+
 
 
 
