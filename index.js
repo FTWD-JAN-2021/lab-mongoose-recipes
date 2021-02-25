@@ -18,11 +18,11 @@ mongoose
     // Before adding any documents to the database, let's delete all previous entries
     return self.connection.dropDatabase();
   })
-  .then(() => {
+  .then(async() => {
     // Run your code here, after you have insured that the connection was made
 
 
-    Recipe.create({
+    await Recipe.create({
       title: "delicacy",
       level: "masterchef",
       ingredients: ["froglegs", "eggs"],
@@ -32,7 +32,9 @@ mongoose
       creator: "almighty Victor"
     }).then(console.log)
 
-    Recipe.insertMany(data).then(console.log)
+    await Recipe.insertMany(data).then(console.log)
+
+    await Recipe.findOneAndUpdate({title: 'Rigatoni alla Genovese'}, {duration: 100}).then(console.log)
 
 
 
