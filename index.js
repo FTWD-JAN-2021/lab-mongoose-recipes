@@ -11,14 +11,14 @@ mongoose
   .connect(MONGODB_URI, {
     useCreateIndex: true,
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
   })
   .then(self => {
     console.log(`Connected to the database: "${self.connection.name}"`);
     // Before adding any documents to the database, let's delete all previous entries
     return self.connection.dropDatabase();
   })
-  .then(async() => {
+  .then(async () => {
     // Run your code here, after you have insured that the connection was made
 
 
@@ -34,11 +34,11 @@ mongoose
 
     await Recipe.insertMany(data).then(console.log)
 
-    await Recipe.findOneAndUpdate({title: 'Rigatoni alla Genovese'}, {duration: 100}).then(console.log)
+    await Recipe.findOneAndUpdate({ title: 'Rigatoni alla Genovese' }, { duration: 100 }).then(console.log)
 
 
-    await Recipe.deleteOne({title:'Carrot Cake'}).then((res) => console.log('Carrot Cake Deleted'))
-    
+    await Recipe.deleteOne({ title: 'Carrot Cake' }).then((res) => console.log('Carrot Cake Deleted'))
+
     mongoose.connection.close()
 
 
@@ -75,7 +75,7 @@ mongoose
   })
   .catch(error => {
     console.error('Error connecting to the database', error);
-    
+
   });
 
 
